@@ -1,3 +1,4 @@
+# TODO(wezm): Replace all of this with native code
 from Quartz import (
     CFMachPortCreateRunLoopSource,
     CFRunLoopAddSource,
@@ -28,6 +29,7 @@ from Quartz import (
     kCGKeyboardEventKeycode,
     kCGSessionEventTap,
 )
+import plovermac
 import threading
 import collections
 import ctypes
@@ -257,9 +259,9 @@ class KeyboardCapture(threading.Thread):
             CGEventMaskBit(kCGEventKeyDown) | CGEventMaskBit(kCGEventKeyUp),
             callback, None)
         if self._tap is None:
-            # Todo(hesky): See if there is a nice way to show the user what's
-            # needed (or do it for them).
-            raise Exception("Enable access for assistive devices.")
+            if not plovermac.request_access_for_assistive_devices():
+                # TODO(wezm): Show a nice error or exit cleanly here
+                raise Exception("Enable access for assistive devices.")
         self._source = CFMachPortCreateRunLoopSource(None, self._tap, 0)
         CGEventTapEnable(self._tap, False)
 

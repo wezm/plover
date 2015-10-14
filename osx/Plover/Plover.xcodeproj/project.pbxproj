@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B152E83F1BCCDFE400A5EF0E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B152E83E1BCCDFE400A5EF0E /* AppDelegate.m */; };
+		B152E8421BCCDFE400A5EF0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B152E8411BCCDFE400A5EF0E /* main.m */; };
+		B152E8441BCCDFE400A5EF0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B152E8431BCCDFE400A5EF0E /* Assets.xcassets */; };
+		B152E8471BCCDFE400A5EF0E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B152E8451BCCDFE400A5EF0E /* MainMenu.xib */; };
+		B152E8521BCCDFE400A5EF0E /* PloverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B152E8511BCCDFE400A5EF0E /* PloverTests.m */; };
+		B152E85D1BCCDFE400A5EF0E /* PloverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B152E85C1BCCDFE400A5EF0E /* PloverUITests.m */; };
+		B152E86B1BCCE0F300A5EF0E /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */; settings = {ASSET_TAGS = (); }; };
+		B152E86C1BCCE0F400A5EF0E /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */; settings = {ASSET_TAGS = (); }; };
+		B152E86D1BCCE0F400A5EF0E /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */; settings = {ASSET_TAGS = (); }; };
+		B152E86F1BCCE40400A5EF0E /* plover in Resources */ = {isa = PBXBuildFile; fileRef = B152E86E1BCCE40400A5EF0E /* plover */; settings = {ASSET_TAGS = (); }; };
+		B152E8701BCCE40400A5EF0E /* plover in Resources */ = {isa = PBXBuildFile; fileRef = B152E86E1BCCE40400A5EF0E /* plover */; settings = {ASSET_TAGS = (); }; };
+		B152E8711BCCE40400A5EF0E /* plover in Resources */ = {isa = PBXBuildFile; fileRef = B152E86E1BCCE40400A5EF0E /* plover */; settings = {ASSET_TAGS = (); }; };
+		B152E8741BCCE4AE00A5EF0E /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = B152E8731BCCE4AE00A5EF0E /* main.py */; settings = {ASSET_TAGS = (); }; };
+		B152E8751BCCE4AE00A5EF0E /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = B152E8731BCCE4AE00A5EF0E /* main.py */; settings = {ASSET_TAGS = (); }; };
+		B152E8761BCCE4AE00A5EF0E /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = B152E8731BCCE4AE00A5EF0E /* main.py */; settings = {ASSET_TAGS = (); }; };
+		B152E87C1BCE312D00A5EF0E /* virtualenv in Resources */ = {isa = PBXBuildFile; fileRef = B152E87B1BCE312D00A5EF0E /* virtualenv */; settings = {ASSET_TAGS = (); }; };
+		B152E87D1BCE312D00A5EF0E /* virtualenv in Resources */ = {isa = PBXBuildFile; fileRef = B152E87B1BCE312D00A5EF0E /* virtualenv */; settings = {ASSET_TAGS = (); }; };
+		B152E87E1BCE312D00A5EF0E /* virtualenv in Resources */ = {isa = PBXBuildFile; fileRef = B152E87B1BCE312D00A5EF0E /* virtualenv */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B152E84E1BCCDFE400A5EF0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B152E8321BCCDFE400A5EF0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B152E8391BCCDFE400A5EF0E;
+			remoteInfo = Plover;
+		};
+		B152E8591BCCDFE400A5EF0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B152E8321BCCDFE400A5EF0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B152E8391BCCDFE400A5EF0E;
+			remoteInfo = Plover;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B152E83A1BCCDFE400A5EF0E /* Plover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plover.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B152E83D1BCCDFE400A5EF0E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B152E83E1BCCDFE400A5EF0E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B152E8411BCCDFE400A5EF0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B152E8431BCCDFE400A5EF0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B152E8461BCCDFE400A5EF0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B152E8481BCCDFE400A5EF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B152E84D1BCCDFE400A5EF0E /* PloverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PloverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B152E8511BCCDFE400A5EF0E /* PloverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PloverTests.m; sourceTree = "<group>"; };
+		B152E8531BCCDFE400A5EF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B152E8581BCCDFE400A5EF0E /* PloverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PloverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B152E85C1BCCDFE400A5EF0E /* PloverUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PloverUITests.m; sourceTree = "<group>"; };
+		B152E85E1BCCDFE400A5EF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython2.7.dylib; path = /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config/libpython2.7.dylib; sourceTree = "<absolute>"; };
+		B152E86E1BCCE40400A5EF0E /* plover */ = {isa = PBXFileReference; lastKnownFileType = folder; name = plover; path = ../../plover; sourceTree = "<group>"; };
+		B152E8731BCCE4AE00A5EF0E /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = main.py; path = Plover/main.py; sourceTree = "<group>"; };
+		B152E87B1BCE312D00A5EF0E /* virtualenv */ = {isa = PBXFileReference; lastKnownFileType = folder; path = virtualenv; sourceTree = "<group>"; };
+		B152E87F1BCE5DEC00A5EF0E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B152E8371BCCDFE400A5EF0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B152E86B1BCCE0F300A5EF0E /* libpython2.7.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B152E84A1BCCDFE400A5EF0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B152E86C1BCCE0F400A5EF0E /* libpython2.7.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B152E8551BCCDFE400A5EF0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B152E86D1BCCE0F400A5EF0E /* libpython2.7.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B152E8311BCCDFE400A5EF0E = {
+			isa = PBXGroup;
+			children = (
+				B152E87F1BCE5DEC00A5EF0E /* ApplicationServices.framework */,
+				B152E83C1BCCDFE400A5EF0E /* Plover */,
+				B152E8721BCCE49200A5EF0E /* Python */,
+				B152E8501BCCDFE400A5EF0E /* PloverTests */,
+				B152E85B1BCCDFE400A5EF0E /* PloverUITests */,
+				B152E83B1BCCDFE400A5EF0E /* Products */,
+				B152E87B1BCE312D00A5EF0E /* virtualenv */,
+				B152E86E1BCCE40400A5EF0E /* plover */,
+			);
+			sourceTree = "<group>";
+		};
+		B152E83B1BCCDFE400A5EF0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B152E83A1BCCDFE400A5EF0E /* Plover.app */,
+				B152E84D1BCCDFE400A5EF0E /* PloverTests.xctest */,
+				B152E8581BCCDFE400A5EF0E /* PloverUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B152E83C1BCCDFE400A5EF0E /* Plover */ = {
+			isa = PBXGroup;
+			children = (
+				B152E83D1BCCDFE400A5EF0E /* AppDelegate.h */,
+				B152E83E1BCCDFE400A5EF0E /* AppDelegate.m */,
+				B152E8431BCCDFE400A5EF0E /* Assets.xcassets */,
+				B152E8451BCCDFE400A5EF0E /* MainMenu.xib */,
+				B152E8481BCCDFE400A5EF0E /* Info.plist */,
+				B152E8401BCCDFE400A5EF0E /* Supporting Files */,
+			);
+			path = Plover;
+			sourceTree = "<group>";
+		};
+		B152E8401BCCDFE400A5EF0E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */,
+				B152E8411BCCDFE400A5EF0E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B152E8501BCCDFE400A5EF0E /* PloverTests */ = {
+			isa = PBXGroup;
+			children = (
+				B152E8511BCCDFE400A5EF0E /* PloverTests.m */,
+				B152E8531BCCDFE400A5EF0E /* Info.plist */,
+			);
+			path = PloverTests;
+			sourceTree = "<group>";
+		};
+		B152E85B1BCCDFE400A5EF0E /* PloverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B152E85C1BCCDFE400A5EF0E /* PloverUITests.m */,
+				B152E85E1BCCDFE400A5EF0E /* Info.plist */,
+			);
+			path = PloverUITests;
+			sourceTree = "<group>";
+		};
+		B152E8721BCCE49200A5EF0E /* Python */ = {
+			isa = PBXGroup;
+			children = (
+				B152E8731BCCE4AE00A5EF0E /* main.py */,
+			);
+			name = Python;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B152E8391BCCDFE400A5EF0E /* Plover */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B152E8611BCCDFE400A5EF0E /* Build configuration list for PBXNativeTarget "Plover" */;
+			buildPhases = (
+				B152E8361BCCDFE400A5EF0E /* Sources */,
+				B152E8371BCCDFE400A5EF0E /* Frameworks */,
+				B152E8381BCCDFE400A5EF0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Plover;
+			productName = Plover;
+			productReference = B152E83A1BCCDFE400A5EF0E /* Plover.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B152E84C1BCCDFE400A5EF0E /* PloverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B152E8641BCCDFE400A5EF0E /* Build configuration list for PBXNativeTarget "PloverTests" */;
+			buildPhases = (
+				B152E8491BCCDFE400A5EF0E /* Sources */,
+				B152E84A1BCCDFE400A5EF0E /* Frameworks */,
+				B152E84B1BCCDFE400A5EF0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B152E84F1BCCDFE400A5EF0E /* PBXTargetDependency */,
+			);
+			name = PloverTests;
+			productName = PloverTests;
+			productReference = B152E84D1BCCDFE400A5EF0E /* PloverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B152E8571BCCDFE400A5EF0E /* PloverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B152E8671BCCDFE400A5EF0E /* Build configuration list for PBXNativeTarget "PloverUITests" */;
+			buildPhases = (
+				B152E8541BCCDFE400A5EF0E /* Sources */,
+				B152E8551BCCDFE400A5EF0E /* Frameworks */,
+				B152E8561BCCDFE400A5EF0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B152E85A1BCCDFE400A5EF0E /* PBXTargetDependency */,
+			);
+			name = PloverUITests;
+			productName = PloverUITests;
+			productReference = B152E8581BCCDFE400A5EF0E /* PloverUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B152E8321BCCDFE400A5EF0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Open Steno Project";
+				TargetAttributes = {
+					B152E8391BCCDFE400A5EF0E = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					B152E84C1BCCDFE400A5EF0E = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = B152E8391BCCDFE400A5EF0E;
+					};
+					B152E8571BCCDFE400A5EF0E = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = B152E8391BCCDFE400A5EF0E;
+					};
+				};
+			};
+			buildConfigurationList = B152E8351BCCDFE400A5EF0E /* Build configuration list for PBXProject "Plover" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B152E8311BCCDFE400A5EF0E;
+			productRefGroup = B152E83B1BCCDFE400A5EF0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B152E8391BCCDFE400A5EF0E /* Plover */,
+				B152E84C1BCCDFE400A5EF0E /* PloverTests */,
+				B152E8571BCCDFE400A5EF0E /* PloverUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B152E8381BCCDFE400A5EF0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B152E8441BCCDFE400A5EF0E /* Assets.xcassets in Resources */,
+				B152E8471BCCDFE400A5EF0E /* MainMenu.xib in Resources */,
+				B152E87C1BCE312D00A5EF0E /* virtualenv in Resources */,
+				B152E86F1BCCE40400A5EF0E /* plover in Resources */,
+				B152E8741BCCE4AE00A5EF0E /* main.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B152E84B1BCCDFE400A5EF0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B152E8701BCCE40400A5EF0E /* plover in Resources */,
+				B152E87D1BCE312D00A5EF0E /* virtualenv in Resources */,
+				B152E8751BCCE4AE00A5EF0E /* main.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B152E8561BCCDFE400A5EF0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B152E8711BCCE40400A5EF0E /* plover in Resources */,
+				B152E87E1BCE312D00A5EF0E /* virtualenv in Resources */,
+				B152E8761BCCE4AE00A5EF0E /* main.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B152E8361BCCDFE400A5EF0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B152E8421BCCDFE400A5EF0E /* main.m in Sources */,
+				B152E83F1BCCDFE400A5EF0E /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B152E8491BCCDFE400A5EF0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B152E8521BCCDFE400A5EF0E /* PloverTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B152E8541BCCDFE400A5EF0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B152E85D1BCCDFE400A5EF0E /* PloverUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B152E84F1BCCDFE400A5EF0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B152E8391BCCDFE400A5EF0E /* Plover */;
+			targetProxy = B152E84E1BCCDFE400A5EF0E /* PBXContainerItemProxy */;
+		};
+		B152E85A1BCCDFE400A5EF0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B152E8391BCCDFE400A5EF0E /* Plover */;
+			targetProxy = B152E8591BCCDFE400A5EF0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B152E8451BCCDFE400A5EF0E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B152E8461BCCDFE400A5EF0E /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B152E85F1BCCDFE400A5EF0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B152E8601BCCDFE400A5EF0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B152E8621BCCDFE400A5EF0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Plover/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openstenoproject.Plover;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B152E8631BCCDFE400A5EF0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Plover/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openstenoproject.Plover;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B152E8651BCCDFE400A5EF0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PloverTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openstenoproject.PloverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plover.app/Contents/MacOS/Plover";
+			};
+			name = Debug;
+		};
+		B152E8661BCCDFE400A5EF0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PloverTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openstenoproject.PloverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plover.app/Contents/MacOS/Plover";
+			};
+			name = Release;
+		};
+		B152E8681BCCDFE400A5EF0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PloverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openstenoproject.PloverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Plover;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B152E8691BCCDFE400A5EF0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PloverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openstenoproject.PloverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Plover;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B152E8351BCCDFE400A5EF0E /* Build configuration list for PBXProject "Plover" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B152E85F1BCCDFE400A5EF0E /* Debug */,
+				B152E8601BCCDFE400A5EF0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B152E8611BCCDFE400A5EF0E /* Build configuration list for PBXNativeTarget "Plover" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B152E8621BCCDFE400A5EF0E /* Debug */,
+				B152E8631BCCDFE400A5EF0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B152E8641BCCDFE400A5EF0E /* Build configuration list for PBXNativeTarget "PloverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B152E8651BCCDFE400A5EF0E /* Debug */,
+				B152E8661BCCDFE400A5EF0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B152E8671BCCDFE400A5EF0E /* Build configuration list for PBXNativeTarget "PloverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B152E8681BCCDFE400A5EF0E /* Debug */,
+				B152E8691BCCDFE400A5EF0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B152E8321BCCDFE400A5EF0E /* Project object */;
+}
