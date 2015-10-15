@@ -12,7 +12,6 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
-@property (weak) IBOutlet NSTextField *label;
 @end
 
 /*
@@ -54,11 +53,28 @@ static PyObject *request_access_for_assistive_devices(PyObject *self, PyObject *
     }
 }
 
+static PyObject *set_machine_status_label(PyObject *self, PyObject *args)
+{
+    const char *status_text;
+    if(!PyArg_ParseTuple(args, "s", &status_text)) {
+        [[NSException exceptionWithName:@"Python Error" reason:@"Unable to extract parameter" userInfo:nil] raise];
+    }
+    NSString *statusText = [[NSString alloc] initWithCString:status_text encoding:NSUTF8StringEncoding];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AppDelegate *appDelegate = (AppDelegate *)[NSApp delegate];
+        appDelegate.label.stringValue = statusText;
+    });
+    
+    Py_RETURN_NONE;
+}
+
 static PyMethodDef PloverOsLayerMacMethods[] = {
     {"assets_dir",  app_assets_dir, METH_VARARGS, "app_assets_dir"},
     {"program_dir",  app_program_dir, METH_VARARGS, "app_program_dir"},
     {"config_dir",  app_config_dir, METH_VARARGS, "app_config_dir"},
     {"request_access_for_assistive_devices",  request_access_for_assistive_devices, METH_VARARGS, "request_access_for_assistive_devices"},
+    {"set_machine_status_label", set_machine_status_label, METH_VARARGS, "set_machine_status_label"},
     {NULL, NULL, 0, NULL}        /* Sentinel */
 };
 

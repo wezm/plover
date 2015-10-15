@@ -10,6 +10,8 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+@property (weak) IBOutlet NSTextField *label;
+
 - (NSURL *)applicationDirectory;
 
 @end

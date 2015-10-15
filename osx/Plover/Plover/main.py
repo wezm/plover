@@ -22,6 +22,7 @@ from plover.oslayer.keyboardcontrol import KeyboardEmulation
 from plover.machine.base import STATE_ERROR, STATE_INITIALIZING, STATE_RUNNING
 from plover.machine.registry import machine_registry
 from plover.exception import InvalidConfigurationError
+import plovermac
 
 def show_error(title, message):
     """Report error to the user.
@@ -97,7 +98,7 @@ class PloverGUI():
 #        frame.Show()
         return True
 
-    def MainLoop():
+    def MainLoop(self):
         # TODO: Need to enter an event loop here, after each cycle of which
         # all the wx.CallAfter callback need to be run
         # Ideally this method would call out to the host application's run loop
@@ -230,9 +231,8 @@ class MainFrame():
             self.config.clear()
 
         self.steno_engine = app.StenoEngine()
-        # FIXME: what does wx.CallAfter do?
         self.steno_engine.add_callback(
-            lambda s: wx.CallAfter(self._update_status, s))
+            lambda s: self._update_status(s))
         self.steno_engine.set_output(
             Output(self.consume_command, self.steno_engine))
 
@@ -266,14 +266,13 @@ class MainFrame():
     def consume_command(self, command):
         # The first commands can be used whether plover is active or not.
         if command == self.COMMAND_RESUME:
-            wx.CallAfter(self.steno_engine.set_is_running, True)
+            self.steno_engine.set_is_running(True)
             return True
         elif command == self.COMMAND_TOGGLE:
-            wx.CallAfter(self.steno_engine.set_is_running,
-                         not self.steno_engine.is_running)
+            self.steno_engine.set_is_running(not self.steno_engine.is_running)
             return True
         elif command == self.COMMAND_QUIT:
-            wx.CallAfter(self._quit)
+            self._quit()
             return True
 
         if not self.steno_engine.is_running:
@@ -281,24 +280,22 @@ class MainFrame():
 
         # These commands can only be run when plover is active.
         if command == self.COMMAND_SUSPEND:
-            wx.CallAfter(self.steno_engine.set_is_running, False)
+            self.steno_engine.set_is_running(False)
             return True
         elif command == self.COMMAND_CONFIGURE:
-            wx.CallAfter(self._show_config_dialog)
+            self._show_config_dialog()
             return True
         elif command == self.COMMAND_FOCUS:
             def f():
                 self.Raise()
                 self.Iconize(False)
-            wx.CallAfter(f)
+            f()
             return True
         elif command == self.COMMAND_ADD_TRANSLATION:
-            wx.CallAfter(plover.gui.add_translation.Show, 
-                         self, self.steno_engine, self.config)
+            plover.gui.add_translation.Show(self, self.steno_engine, self.config)
             return True
         elif command == self.COMMAND_LOOKUP:
-            wx.CallAfter(plover.gui.lookup.Show, 
-                         self, self.steno_engine, self.config)
+            plover.gui.lookup.Show(self, self.steno_engine, self.config)
             return True
             
         return False
@@ -307,31 +304,34 @@ class MainFrame():
         if state:
             machine_name = machine_registry.resolve_alias(
                 self.config.get_machine_type())
-            self.machine_status_text.SetLabel('%s: %s' % (machine_name, state))
-            self.reconnect_button.Show(state == STATE_ERROR)
-            self.spinner.Show(state == STATE_INITIALIZING)
-            self.connection_ctrl.Show(state != STATE_INITIALIZING)
-            if state == STATE_INITIALIZING:
-                self.spinner.Play()
-            else:
-                self.spinner.Stop()
-            if state == STATE_RUNNING:
-                self.connection_ctrl.SetBitmap(self.connected_bitmap)
-            elif state == STATE_ERROR:
-                self.connection_ctrl.SetBitmap(self.disconnected_bitmap)
-            self.machine_status_sizer.Layout()
+            # self.machine_status_text.SetLabel('%s: %s' % (machine_name, state))
+            plovermac.set_machine_status_label('%s: %s' % (machine_name, state))
+            # self.reconnect_button.Show(state == STATE_ERROR)
+            # self.spinner.Show(state == STATE_INITIALIZING)
+            # self.connection_ctrl.Show(state != STATE_INITIALIZING)
+            # if state == STATE_INITIALIZING:
+            #     self.spinner.Play()
+            # else:
+            #     self.spinner.Stop()
+            # if state == STATE_RUNNING:
+            #     self.connection_ctrl.SetBitmap(self.connected_bitmap)
+            # elif state == STATE_ERROR:
+            #     self.connection_ctrl.SetBitmap(self.disconnected_bitmap)
+            # self.machine_status_sizer.Layout()
         if self.steno_engine.machine:
-            self.status_button.Enable()
-            if self.steno_engine.is_running:
-                self.status_button.SetBitmapLabel(self.on_bitmap)
-                self.SetTitle("%s: %s" % (self.TITLE, self.RUNNING_MESSAGE))
-            else:
-                self.status_button.SetBitmapLabel(self.off_bitmap)
-                self.SetTitle("%s: %s" % (self.TITLE, self.STOPPED_MESSAGE))
+            # self.status_button.Enable()
+            # if self.steno_engine.is_running:
+            #     self.status_button.SetBitmapLabel(self.on_bitmap)
+            #     self.SetTitle("%s: %s" % (self.TITLE, self.RUNNING_MESSAGE))
+            # else:
+            #     self.status_button.SetBitmapLabel(self.off_bitmap)
+            #     self.SetTitle("%s: %s" % (self.TITLE, self.STOPPED_MESSAGE))
+            pass
         else:
-            self.status_button.Disable()
-            self.status_button.SetBitmapLabel(self.off_bitmap)
-            self.SetTitle("%s: %s" % (self.TITLE, self.ERROR_MESSAGE))
+            # self.status_button.Disable()
+            # self.status_button.SetBitmapLabel(self.off_bitmap)
+            # self.SetTitle("%s: %s" % (self.TITLE, self.ERROR_MESSAGE))
+            pass
 
     def _quit(self, event=None):
         if self.steno_engine:
