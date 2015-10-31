@@ -11,8 +11,10 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (weak) IBOutlet NSTextField *label;
+@property (weak) IBOutlet NSButton *togglePloverButton;
 
 - (NSURL *)applicationDirectory;
+- (void)setPloverReady:(BOOL)ready;
 
 @end
 

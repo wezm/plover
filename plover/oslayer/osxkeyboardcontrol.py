@@ -303,8 +303,9 @@ CGEventKeyboardSetUnicodeString.restype = None
 native_utf16 = 'utf-16-le' if sys.byteorder == 'little' else 'utf-16-be'
 
 def set_string(event, s):
-    buf = s.encode(native_utf16)
-    CGEventKeyboardSetUnicodeString(objc.pyobjc_id(event), len(buf) / 2, buf)
+    print "XXX: set_string"
+    # buf = s.encode(native_utf16)
+    # CGEventKeyboardSetUnicodeString(objc.pyobjc_id(event), len(buf) / 2, buf)
 
 class KeyboardEmulation(object):
 
@@ -319,13 +320,14 @@ class KeyboardEmulation(object):
                 CGEventCreateKeyboardEvent(MY_EVENT_SOURCE, 51, False))
 
     def send_string(self, s):
-        for c in characters(s):
-            event = CGEventCreateKeyboardEvent(MY_EVENT_SOURCE, 0, True)
-            set_string(event, c)
-            CGEventPost(kCGSessionEventTap, event)
-            event = CGEventCreateKeyboardEvent(MY_EVENT_SOURCE, 0, False)
-            set_string(event, c)
-            CGEventPost(kCGSessionEventTap, event)
+        plovermac.send_string(s)
+        # for c in characters(s):
+        #     event = CGEventCreateKeyboardEvent(MY_EVENT_SOURCE, 0, True)
+        #     set_string(event, c)
+        #     CGEventPost(kCGSessionEventTap, event)
+        #     event = CGEventCreateKeyboardEvent(MY_EVENT_SOURCE, 0, False)
+        #     set_string(event, c)
+        #     CGEventPost(kCGSessionEventTap, event)
 
     def send_key_combination(self, combo_string):
         """Emulate a sequence of key combinations.

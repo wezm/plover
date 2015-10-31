@@ -11,6 +11,7 @@ import traceback
 # import wx
 import json
 import glob
+import time
 
 from collections import OrderedDict
 
@@ -93,7 +94,7 @@ class PloverGUI():
 
     def OnInit(self):
         """Called just before the application starts."""
-        frame = MainFrame(self.config)
+        self.main_frame = MainFrame(self.config)
 #        self.SetTopWindow(frame)
 #        frame.Show()
         return True
@@ -104,6 +105,11 @@ class PloverGUI():
         # Ideally this method would call out to the host application's run loop
         # or one set up for it
         print 'MainLoop()'
+        while True:
+            time.sleep(1)
+    
+    def toggle_steno_engine(self):
+        self.main_frame._toggle_steno_engine()
 
 #def gui_thread_hook(fn, *args):
 #    wx.CallAfter(fn, *args)
@@ -136,6 +142,8 @@ class MainFrame():
     COMMAND_FOCUS = 'FOCUS'
     COMMAND_QUIT = 'QUIT'
 
+    TOGGLE_BUTTON_TAG = 1
+
     def __init__(self, config):
         self.config = config
         
@@ -151,6 +159,7 @@ class MainFrame():
 #        self.off_bitmap = wx.Bitmap(self.OFF_IMAGE_FILE, wx.BITMAP_TYPE_PNG)
 #        self.status_button = wx.BitmapButton(self, bitmap=self.on_bitmap)
 #        self.status_button.Bind(wx.EVT_BUTTON, self._toggle_steno_engine)
+#        plovermac.bind(self.TOGGLE_BUTTON_TAG, self._toggle_steno_engine)
 #
 #        # Configure button.
 #        self.configure_button = wx.Button(self,
@@ -313,25 +322,33 @@ class MainFrame():
             #     self.spinner.Play()
             # else:
             #     self.spinner.Stop()
-            # if state == STATE_RUNNING:
-            #     self.connection_ctrl.SetBitmap(self.connected_bitmap)
-            # elif state == STATE_ERROR:
-            #     self.connection_ctrl.SetBitmap(self.disconnected_bitmap)
+            if state == STATE_RUNNING:
+                # self.connection_ctrl.SetBitmap(self.connected_bitmap)
+                # plovermac.set_connected(True)
+                pass
+            elif state == STATE_ERROR:
+                # self.connection_ctrl.SetBitmap(self.disconnected_bitmap)
+                # plovermac.set_connected(False)
+                pass
             # self.machine_status_sizer.Layout()
         if self.steno_engine.machine:
             # self.status_button.Enable()
-            # if self.steno_engine.is_running:
-            #     self.status_button.SetBitmapLabel(self.on_bitmap)
-            #     self.SetTitle("%s: %s" % (self.TITLE, self.RUNNING_MESSAGE))
-            # else:
-            #     self.status_button.SetBitmapLabel(self.off_bitmap)
-            #     self.SetTitle("%s: %s" % (self.TITLE, self.STOPPED_MESSAGE))
-            pass
+            plovermac.enable_status_button(True)
+            plovermac.set_engine_is_running(self.steno_engine.is_running)
+            if self.steno_engine.is_running:
+                # self.status_button.SetBitmapLabel(self.on_bitmap)
+                # self.SetTitle("%s: %s" % (self.TITLE, self.RUNNING_MESSAGE))
+                plovermac.set_title("%s: %s" % (self.TITLE, self.RUNNING_MESSAGE))
+            else:
+                # self.status_button.SetBitmapLabel(self.off_bitmap)
+                # self.SetTitle("%s: %s" % (self.TITLE, self.STOPPED_MESSAGE))
+                plovermac.set_title("%s: %s" % (self.TITLE, self.STOPPED_MESSAGE))
         else:
             # self.status_button.Disable()
+            plovermac.enable_status_button(False)
             # self.status_button.SetBitmapLabel(self.off_bitmap)
             # self.SetTitle("%s: %s" % (self.TITLE, self.ERROR_MESSAGE))
-            pass
+            plovermac.set_title("%s: %s" % (self.TITLE, self.ERROR_MESSAGE))
 
     def _quit(self, event=None):
         if self.steno_engine:
@@ -382,13 +399,16 @@ class Output(object):
         self.engine = engine
 
     def send_backspaces(self, b):
-        wx.CallAfter(self.keyboard_control.send_backspaces, b)
+        # wx.CallAfter(self.keyboard_control.send_backspaces, b)
+        self.keyboard_control.send_backspaces(b)
 
     def send_string(self, t):
-        wx.CallAfter(self.keyboard_control.send_string, t)
+        # wx.CallAfter(self.keyboard_control.send_string, t)
+        self.keyboard_control.send_string(t)
 
     def send_key_combination(self, c):
-        wx.CallAfter(self.keyboard_control.send_key_combination, c)
+        # wx.CallAfter(self.keyboard_control.send_key_combination, c)
+        self.keyboard_control.send_key_combination(c)
 
     # TODO: test all the commands now
     def send_engine_command(self, c):
@@ -398,6 +418,9 @@ class Output(object):
 
 def main():
     """Launch plover."""
+    
+    global gui
+    
     try:
         # Ensure only one instance of Plover is running at a time.
         with plover.oslayer.processlock.PloverLock():
