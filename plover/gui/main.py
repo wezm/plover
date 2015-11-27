@@ -8,6 +8,7 @@ resumes stenotype translation and allows for application configuration.
 
 """
 
+import sys
 import os
 import wx
 import wx.animate
@@ -38,14 +39,23 @@ class PloverGUI(wx.App):
 
     def __init__(self, config):
         self.config = config
-        wx.App.__init__(self, redirect=False)
+        # Override sys.argv[0] so X11 windows class is correctly set.
+        argv = sys.argv
+        try:
+            sys.argv = [__software_name__] + argv[:1]
+            wx.App.__init__(self, redirect=False)
+        finally:
+            sys.argv = argv
 
     def OnInit(self):
         """Called just before the application starts."""
+        # Enable GUI logging.
+        from plover.gui import log as gui_log
         frame = MainFrame(self.config)
         self.SetTopWindow(frame)
         frame.Show()
         return True
+
 
 def gui_thread_hook(fn, *args):
     wx.CallAfter(fn, *args)
@@ -54,7 +64,7 @@ class MainFrame(wx.Frame):
     """The top-level GUI element of the Plover application."""
 
     # Class constants.
-    TITLE = "Plover"
+    TITLE = __software_name__.capitalize()
     ALERT_DIALOG_TITLE = TITLE
     ON_IMAGE_FILE = os.path.join(ASSETS_DIR, 'plover_on.png')
     OFF_IMAGE_FILE = os.path.join(ASSETS_DIR, 'plover_off.png')
@@ -79,10 +89,9 @@ class MainFrame(wx.Frame):
 
     def __init__(self, config):
         self.config = config
-        
-        pos = wx.DefaultPosition
-        size = wx.DefaultSize
-        wx.Frame.__init__(self, None, title=self.TITLE, pos=pos, size=size,
+
+        # Note: don't set position from config, since it's not yet loaded.
+        wx.Frame.__init__(self, None, title=self.TITLE,
                           style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER |
                                                            wx.RESIZE_BOX |
                                                            wx.MAXIMIZE_BOX))
@@ -97,6 +106,10 @@ class MainFrame(wx.Frame):
         self.configure_button = wx.Button(self,
                                           label=self.CONFIGURE_BUTTON_LABEL)
         self.configure_button.Bind(wx.EVT_BUTTON, self._show_config_dialog)
+
+        # Menu Bar
+        MenuBar = wx.MenuBar()
+        self.SetMenuBar(MenuBar)
 
         # About button.
         self.about_button = wx.Button(self, label=self.ABOUT_BUTTON_LABEL)
@@ -156,12 +169,10 @@ class MainFrame(wx.Frame):
         global_sizer.Add(sizer)
         self.SetSizer(global_sizer)
         global_sizer.Fit(self)
-        
-        self.SetRect(AdjustRectToScreen(self.GetRect()))
 
         self.Bind(wx.EVT_CLOSE, self._quit)
         self.Bind(wx.EVT_MOVE, self.on_move)
-        self.reconnect_button.Bind(wx.EVT_BUTTON, 
+        self.reconnect_button.Bind(wx.EVT_BUTTON,
             lambda e: app.reset_machine(self.steno_engine, self.config))
 
         try:
@@ -170,6 +181,9 @@ class MainFrame(wx.Frame):
         except InvalidConfigurationError as e:
             self._show_alert(unicode(e))
             self.config.clear()
+
+        rect = wx.Rect(config.get_main_frame_x(), config.get_main_frame_y(), *self.GetSize())
+        self.SetRect(AdjustRectToScreen(rect))
 
         self.steno_engine = app.StenoEngine()
         self.steno_engine.add_callback(
@@ -200,9 +214,6 @@ class MainFrame(wx.Frame):
             SuggestionsDisplayDialog.stroke_handler)
         if self.config.get_show_suggestions_display():
             SuggestionsDisplayDialog.display(self, self.config, self.steno_engine)
-            
-        pos = (config.get_main_frame_x(), config.get_main_frame_y())
-        self.SetPosition(pos)
 
     def consume_command(self, command):
         # The first commands can be used whether plover is active or not.
@@ -311,10 +322,10 @@ class MainFrame(wx.Frame):
 
     def on_move(self, event):
         pos = self.GetScreenPositionTuple()
-        self.config.set_main_frame_x(pos[0]) 
+        self.config.set_main_frame_x(pos[0])
         self.config.set_main_frame_y(pos[1])
         event.Skip()
-        
+
 
 class Output(object):
     def __init__(self, engine_command_callback, engine):
