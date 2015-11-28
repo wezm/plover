@@ -358,7 +358,8 @@ class MainFrame():
     def _quit(self, event=None):
         if self.steno_engine:
             self.steno_engine.destroy()
-        self.Destroy()
+        # self.Destroy()
+        plovermac.quit()
 
     def _toggle_steno_engine(self, event=None):
         """Called when the status button is clicked."""

@@ -157,6 +157,18 @@ static PyObject *enable_status_button(PyObject *self, PyObject *args)
     Py_RETURN_NONE;
 }
 
+
+static PyObject *quit_application(PyObject *self, PyObject *args)
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // TODO: Extract all of this Python stuff into a class or something and pass self (as in the instance of that class here)
+        id objcSelf = nil;
+        [NSApp terminate:objcSelf];
+    });
+    
+    Py_RETURN_NONE;
+}
+
 static PyMethodDef PloverOsLayerMacMethods[] = {
     {"assets_dir",  app_assets_dir, METH_VARARGS, "app_assets_dir"},
     {"program_dir",  app_program_dir, METH_VARARGS, "app_program_dir"},
@@ -167,6 +179,7 @@ static PyMethodDef PloverOsLayerMacMethods[] = {
     {"send_string", send_string, METH_VARARGS, "Send keypresses"},
     {"enable_status_button", enable_status_button, METH_VARARGS, "enable_status_button"},
     {"set_engine_is_running", set_engine_is_running, METH_VARARGS, "set_engine_is_running"},
+    {"quit", quit_application, METH_VARARGS, "quit"},
     {NULL, NULL, 0, NULL}        /* Sentinel */
 };
 
