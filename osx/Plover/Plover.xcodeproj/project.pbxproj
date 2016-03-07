@@ -7,24 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1012C681C0A81590058496B /* StenoEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B1012C671C0A81590058496B /* StenoEngine.m */; };
 		B152E83F1BCCDFE400A5EF0E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B152E83E1BCCDFE400A5EF0E /* AppDelegate.m */; };
 		B152E8421BCCDFE400A5EF0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B152E8411BCCDFE400A5EF0E /* main.m */; };
 		B152E8441BCCDFE400A5EF0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B152E8431BCCDFE400A5EF0E /* Assets.xcassets */; };
 		B152E8471BCCDFE400A5EF0E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B152E8451BCCDFE400A5EF0E /* MainMenu.xib */; };
 		B152E8521BCCDFE400A5EF0E /* PloverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B152E8511BCCDFE400A5EF0E /* PloverTests.m */; };
 		B152E85D1BCCDFE400A5EF0E /* PloverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B152E85C1BCCDFE400A5EF0E /* PloverUITests.m */; };
-		B152E86B1BCCE0F300A5EF0E /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */; settings = {ASSET_TAGS = (); }; };
-		B152E86C1BCCE0F400A5EF0E /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */; settings = {ASSET_TAGS = (); }; };
-		B152E86D1BCCE0F400A5EF0E /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */; settings = {ASSET_TAGS = (); }; };
-		B152E86F1BCCE40400A5EF0E /* plover in Resources */ = {isa = PBXBuildFile; fileRef = B152E86E1BCCE40400A5EF0E /* plover */; settings = {ASSET_TAGS = (); }; };
-		B152E8701BCCE40400A5EF0E /* plover in Resources */ = {isa = PBXBuildFile; fileRef = B152E86E1BCCE40400A5EF0E /* plover */; settings = {ASSET_TAGS = (); }; };
-		B152E8711BCCE40400A5EF0E /* plover in Resources */ = {isa = PBXBuildFile; fileRef = B152E86E1BCCE40400A5EF0E /* plover */; settings = {ASSET_TAGS = (); }; };
-		B152E8741BCCE4AE00A5EF0E /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = B152E8731BCCE4AE00A5EF0E /* main.py */; settings = {ASSET_TAGS = (); }; };
-		B152E8751BCCE4AE00A5EF0E /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = B152E8731BCCE4AE00A5EF0E /* main.py */; settings = {ASSET_TAGS = (); }; };
-		B152E8761BCCE4AE00A5EF0E /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = B152E8731BCCE4AE00A5EF0E /* main.py */; settings = {ASSET_TAGS = (); }; };
-		B152E87C1BCE312D00A5EF0E /* virtualenv in Resources */ = {isa = PBXBuildFile; fileRef = B152E87B1BCE312D00A5EF0E /* virtualenv */; settings = {ASSET_TAGS = (); }; };
-		B152E87D1BCE312D00A5EF0E /* virtualenv in Resources */ = {isa = PBXBuildFile; fileRef = B152E87B1BCE312D00A5EF0E /* virtualenv */; settings = {ASSET_TAGS = (); }; };
-		B152E87E1BCE312D00A5EF0E /* virtualenv in Resources */ = {isa = PBXBuildFile; fileRef = B152E87B1BCE312D00A5EF0E /* virtualenv */; settings = {ASSET_TAGS = (); }; };
+		B152E86B1BCCE0F300A5EF0E /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */; };
+		B152E86C1BCCE0F400A5EF0E /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */; };
+		B152E86D1BCCE0F400A5EF0E /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B152E86A1BCCE0F300A5EF0E /* libpython2.7.dylib */; };
+		B152E86F1BCCE40400A5EF0E /* plover in Resources */ = {isa = PBXBuildFile; fileRef = B152E86E1BCCE40400A5EF0E /* plover */; };
+		B152E8701BCCE40400A5EF0E /* plover in Resources */ = {isa = PBXBuildFile; fileRef = B152E86E1BCCE40400A5EF0E /* plover */; };
+		B152E8711BCCE40400A5EF0E /* plover in Resources */ = {isa = PBXBuildFile; fileRef = B152E86E1BCCE40400A5EF0E /* plover */; };
+		B152E8741BCCE4AE00A5EF0E /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = B152E8731BCCE4AE00A5EF0E /* main.py */; };
+		B152E8751BCCE4AE00A5EF0E /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = B152E8731BCCE4AE00A5EF0E /* main.py */; };
+		B152E8761BCCE4AE00A5EF0E /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = B152E8731BCCE4AE00A5EF0E /* main.py */; };
+		B152E87C1BCE312D00A5EF0E /* virtualenv in Resources */ = {isa = PBXBuildFile; fileRef = B152E87B1BCE312D00A5EF0E /* virtualenv */; };
+		B152E87D1BCE312D00A5EF0E /* virtualenv in Resources */ = {isa = PBXBuildFile; fileRef = B152E87B1BCE312D00A5EF0E /* virtualenv */; };
+		B152E87E1BCE312D00A5EF0E /* virtualenv in Resources */ = {isa = PBXBuildFile; fileRef = B152E87B1BCE312D00A5EF0E /* virtualenv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1012C631C0929CC0058496B /* OSPloverMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSPloverMac.h; sourceTree = "<group>"; };
+		B1012C641C0929CC0058496B /* OSPloverMac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSPloverMac.m; sourceTree = "<group>"; };
+		B1012C661C0A81590058496B /* StenoEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StenoEngine.h; sourceTree = "<group>"; };
+		B1012C671C0A81590058496B /* StenoEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StenoEngine.m; sourceTree = "<group>"; };
 		B152E83A1BCCDFE400A5EF0E /* Plover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B152E83D1BCCDFE400A5EF0E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B152E83E1BCCDFE400A5EF0E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -126,6 +131,10 @@
 				B152E8451BCCDFE400A5EF0E /* MainMenu.xib */,
 				B152E8481BCCDFE400A5EF0E /* Info.plist */,
 				B152E8401BCCDFE400A5EF0E /* Supporting Files */,
+				B1012C631C0929CC0058496B /* OSPloverMac.h */,
+				B1012C641C0929CC0058496B /* OSPloverMac.m */,
+				B1012C661C0A81590058496B /* StenoEngine.h */,
+				B1012C671C0A81590058496B /* StenoEngine.m */,
 			);
 			path = Plover;
 			sourceTree = "<group>";
@@ -305,6 +314,7 @@
 			files = (
 				B152E8421BCCDFE400A5EF0E /* main.m in Sources */,
 				B152E83F1BCCDFE400A5EF0E /* AppDelegate.m in Sources */,
+				B1012C681C0A81590058496B /* StenoEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

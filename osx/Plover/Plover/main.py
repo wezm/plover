@@ -116,6 +116,12 @@ class PloverGUI():
     def toggle_steno_engine(self):
         self.main_frame._toggle_steno_engine()
 
+    def set_engine_is_running(self, is_running):
+        self.main_frame._set_engine_is_running(is_running)
+
+    def engine_is_running(self):
+        return self.main_frame.steno_engine.is_running
+
 #def gui_thread_hook(fn, *args):
 #    wx.CallAfter(fn, *args)
 
@@ -124,28 +130,28 @@ class MainFrame():
     """The top-level GUI element of the Plover application."""
 
     # Class constants.
-    TITLE = "Plover"
-    ALERT_DIALOG_TITLE = TITLE
-    ON_IMAGE_FILE = os.path.join(ASSETS_DIR, 'plover_on.png')
-    OFF_IMAGE_FILE = os.path.join(ASSETS_DIR, 'plover_off.png')
-    CONNECTED_IMAGE_FILE = os.path.join(ASSETS_DIR, 'connected.png')
-    DISCONNECTED_IMAGE_FILE = os.path.join(ASSETS_DIR, 'disconnected.png')
-    REFRESH_IMAGE_FILE = os.path.join(ASSETS_DIR, 'refresh.png')
-    BORDER = 5
-    RUNNING_MESSAGE = "running"
-    STOPPED_MESSAGE = "stopped"
-    ERROR_MESSAGE = "error"
-    CONFIGURE_BUTTON_LABEL = "Configure..."
-    ABOUT_BUTTON_LABEL = "About..."
-    RECONNECT_BUTTON_LABEL = "Reconnect..."
-    COMMAND_SUSPEND = 'SUSPEND'
-    COMMAND_ADD_TRANSLATION = 'ADD_TRANSLATION'
-    COMMAND_LOOKUP = 'LOOKUP'
-    COMMAND_RESUME = 'RESUME'
-    COMMAND_TOGGLE = 'TOGGLE'
-    COMMAND_CONFIGURE = 'CONFIGURE'
-    COMMAND_FOCUS = 'FOCUS'
-    COMMAND_QUIT = 'QUIT'
+    # TITLE = "Plover"
+    # ALERT_DIALOG_TITLE = TITLE
+    # ON_IMAGE_FILE = os.path.join(ASSETS_DIR, 'plover_on.png')
+    # OFF_IMAGE_FILE = os.path.join(ASSETS_DIR, 'plover_off.png')
+    # CONNECTED_IMAGE_FILE = os.path.join(ASSETS_DIR, 'connected.png')
+    # DISCONNECTED_IMAGE_FILE = os.path.join(ASSETS_DIR, 'disconnected.png')
+    # REFRESH_IMAGE_FILE = os.path.join(ASSETS_DIR, 'refresh.png')
+    # BORDER = 5
+    # RUNNING_MESSAGE = "running"
+    # STOPPED_MESSAGE = "stopped"
+    # ERROR_MESSAGE = "error"
+    # CONFIGURE_BUTTON_LABEL = "Configure..."
+    # ABOUT_BUTTON_LABEL = "About..."
+    # RECONNECT_BUTTON_LABEL = "Reconnect..."
+    # COMMAND_SUSPEND = 'SUSPEND'
+    # COMMAND_ADD_TRANSLATION = 'ADD_TRANSLATION'
+    # COMMAND_LOOKUP = 'LOOKUP'
+    # COMMAND_RESUME = 'RESUME'
+    # COMMAND_TOGGLE = 'TOGGLE'
+    # COMMAND_CONFIGURE = 'CONFIGURE'
+    # COMMAND_FOCUS = 'FOCUS'
+    # COMMAND_QUIT = 'QUIT'
 
     TOGGLE_BUTTON_TAG = 1
 
@@ -246,9 +252,9 @@ class MainFrame():
 
         self.steno_engine = app.StenoEngine()
         self.steno_engine.add_callback(
-            lambda s: self._update_status(s))
+            lambda s: plovermac.update_status(s))
         self.steno_engine.set_output(
-            Output(self.consume_command, self.steno_engine))
+            Output(plovermac.consume_command, self.steno_engine))
 
         while True:
             try:
@@ -277,84 +283,6 @@ class MainFrame():
 #        pos = (config.get_main_frame_x(), config.get_main_frame_y())
 #        self.SetPosition(pos)
 
-    def consume_command(self, command):
-        # The first commands can be used whether plover is active or not.
-        if command == self.COMMAND_RESUME:
-            self.steno_engine.set_is_running(True)
-            return True
-        elif command == self.COMMAND_TOGGLE:
-            self.steno_engine.set_is_running(not self.steno_engine.is_running)
-            return True
-        elif command == self.COMMAND_QUIT:
-            self._quit()
-            return True
-
-        if not self.steno_engine.is_running:
-            return False
-
-        # These commands can only be run when plover is active.
-        if command == self.COMMAND_SUSPEND:
-            self.steno_engine.set_is_running(False)
-            return True
-        elif command == self.COMMAND_CONFIGURE:
-            self._show_config_dialog()
-            return True
-        elif command == self.COMMAND_FOCUS:
-            def f():
-                self.Raise()
-                self.Iconize(False)
-            f()
-            return True
-        elif command == self.COMMAND_ADD_TRANSLATION:
-            plover.gui.add_translation.Show(self, self.steno_engine, self.config)
-            return True
-        elif command == self.COMMAND_LOOKUP:
-            plover.gui.lookup.Show(self, self.steno_engine, self.config)
-            return True
-            
-        return False
-
-    def _update_status(self, state):
-        if state:
-            machine_name = machine_registry.resolve_alias(
-                self.config.get_machine_type())
-            # self.machine_status_text.SetLabel('%s: %s' % (machine_name, state))
-            plovermac.set_machine_status_label('%s: %s' % (machine_name, state))
-            # self.reconnect_button.Show(state == STATE_ERROR)
-            # self.spinner.Show(state == STATE_INITIALIZING)
-            # self.connection_ctrl.Show(state != STATE_INITIALIZING)
-            # if state == STATE_INITIALIZING:
-            #     self.spinner.Play()
-            # else:
-            #     self.spinner.Stop()
-            if state == STATE_RUNNING:
-                # self.connection_ctrl.SetBitmap(self.connected_bitmap)
-                # plovermac.set_connected(True)
-                pass
-            elif state == STATE_ERROR:
-                # self.connection_ctrl.SetBitmap(self.disconnected_bitmap)
-                # plovermac.set_connected(False)
-                pass
-            # self.machine_status_sizer.Layout()
-        if self.steno_engine.machine:
-            # self.status_button.Enable()
-            plovermac.enable_status_button(True)
-            plovermac.set_engine_is_running(self.steno_engine.is_running)
-            if self.steno_engine.is_running:
-                # self.status_button.SetBitmapLabel(self.on_bitmap)
-                # self.SetTitle("%s: %s" % (self.TITLE, self.RUNNING_MESSAGE))
-                plovermac.set_title("%s: %s" % (self.TITLE, self.RUNNING_MESSAGE))
-            else:
-                # self.status_button.SetBitmapLabel(self.off_bitmap)
-                # self.SetTitle("%s: %s" % (self.TITLE, self.STOPPED_MESSAGE))
-                plovermac.set_title("%s: %s" % (self.TITLE, self.STOPPED_MESSAGE))
-        else:
-            # self.status_button.Disable()
-            plovermac.enable_status_button(False)
-            # self.status_button.SetBitmapLabel(self.off_bitmap)
-            # self.SetTitle("%s: %s" % (self.TITLE, self.ERROR_MESSAGE))
-            plovermac.set_title("%s: %s" % (self.TITLE, self.ERROR_MESSAGE))
-
     def _quit(self, event=None):
         if self.steno_engine:
             self.steno_engine.destroy()
@@ -364,6 +292,9 @@ class MainFrame():
     def _toggle_steno_engine(self, event=None):
         """Called when the status button is clicked."""
         self.steno_engine.set_is_running(not self.steno_engine.is_running)
+
+    def _set_engine_is_running(self, is_running):
+        self.steno_engine.set_is_running(is_running)
 
     def _show_config_dialog(self, event=None):
         dlg = ConfigurationDialog(self.steno_engine,

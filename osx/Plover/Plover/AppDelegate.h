@@ -12,9 +12,10 @@
 
 @property (weak) IBOutlet NSTextField *label;
 @property (weak) IBOutlet NSButton *togglePloverButton;
+@property (weak) IBOutlet NSProgressIndicator *spinner;
 
-- (NSURL *)applicationDirectory;
-- (void)setPloverReady:(BOOL)ready;
+//- (NSURL *)applicationDirectory;
+//- (void)setPloverReady:(BOOL)ready;
 
 @end
 
